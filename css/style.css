@@ -1,13 +1,17 @@
 /*CSS reset*/
 body {
   box-sizing: border-box;
+  margin:0;
   font-family: 'Raleway', sans-serif;
+  min-width: 1200px;
+  background-color: white;
 }
 .container {
-  margin: 0 auto 0 auto;
+  padding: 0 40px 0 40px;
   clear: both;
+  width:1200px;
 }
-/*Style do top section*/
+/*Style do class = "top section"*/
 section.top_section {
   height: 50px;
   background-color: black;
@@ -22,40 +26,42 @@ span {
   font-weight: bold;
   text-align: center;
   color: white;
-  margin-left: 40px;
   float: left;
+}
+nav ul {
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  float: right;
+  margin: 0;
 }
 li.menu_item{
   line-height: 50px;
   font-weight: bold;
   text-align: center;
   color: white;
-  margin-left: 40px;
-  margin-right: 40px;
-  float: right;
   list-style: none;
-  position: relative;
-}
-#dropdown {
+  }
+/*#dropdown {
   display: block;
   overflow: auto;
 }
 li.menu_item:hover #dropdown {
   display: block;
-}
+}*/
 
-/*Style do id = "main_section"*/
+/*Style do class = "main_section"*/
 section.main_section {
+  padding-top: 100px;
   height: 500px;
   background-image: -webkit-linear-gradient(top, #EBEBEB 50%, #A8A8A8 100%);
 }
 img {
     display: block;
-    height: 400px;
+    height: 350px;
     width: 40%;
     float: left;
-    margin-top: 20px;
-    margin-left: 40px;
+    margin: 0 20px 0 40px;
     }
 .main_section div {
   display: inline-block;
@@ -91,7 +97,7 @@ section.photo_section {
   height: 280px;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 120px;
+  margin-bottom: 60px;
   margin-top: 30px;
 }
 .photo {
@@ -105,34 +111,44 @@ section.photo_section {
 }
 div.chair {
   background-image: url("../images/box1_img.jpg");
-  margin-left: 40px;
+  background-repeat: no-repeat;
 }
 div.baby {
   background-image: url("../images/box2_img.jpg");
+  background-repeat: no-repeat;
 }
 div.text {
   background-color: white;
   height: 260px;
   width: 380px;
-  margin-right: 40px;
+}
+
+div.text p {
+  text-indent: 15px;
+  text-align: justify;
+  font-size: 12px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin:0;
 }
 h3.chair_category {
-  width: inherit;
+  width: 360px;
   height: 60px;
   background-color: rgba(242,242,242, 0.6);
   line-height: 60px;
   text-align: left;
   color: black;
+  padding-left: 20px;
   position: absolute;
   bottom: 70px;
   }
-  h3.chair_inputs{
-    width: inherit;
-    height: 20px;
-    background-color: white;
-    line-height: 60px;
-    text-align: left;
-    color: red;
+h3.chair_inputs{
+  width: 360px;
+  height: 20px;
+  background-color: white;
+  line-height: 20px;
+  text-align: left;
+  padding-left: 20px;
   }
 span.underline {
   display: block;
@@ -145,12 +161,35 @@ span.underline {
   }
 
   /*Style do section price*/
+  section.price {
+    height: 650px;
+    background-color: #cccccc;
+    padding-top: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .price h2{
+    text-transform: uppercase;
+    padding-bottom: 70px;
+    font-weight: normal;
+    }
+
+  .price h2 span {
+    display: block;
+    width: 300px;
+    height: 5px;
+    border-bottom: 5px solid #23b99f;
+    opacity: 1;
+  }
+  section#container {
+    display: flex;
+    justify-content: space-between;
+  }
+
   div.main_border {
     border: 2px solid grey;
     width: 300px;
-    height: 450px;
-    margin-left: 40px;
-    margin-top: 80px;
+    height: 500px;
     z-index: 1;
     position: relative;
     }
@@ -182,6 +221,10 @@ span.underline {
     position: absolute;
     margin-top: 50px;
     }
+.main_border div:nth-of-type(4) {
+  position: absolute;
+  top:240px;
+}
 .price_circle {
   width: 90px;
   height: 90px;
@@ -196,11 +239,9 @@ span.underline {
 }
 
 .main_border p {
-  width: inherit;
+  width: 300px;
   height: 40px;
   border: 1px solid black;
   margin:0;
   line-height: 40px;
-  position: absolute;
-  top: 250px;
   }
