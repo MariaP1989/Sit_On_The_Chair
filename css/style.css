@@ -164,23 +164,21 @@ span.underline {
   section.price {
     height: 650px;
     background-color: #cccccc;
-    padding-top: 30px;
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-  .price h2{
+    padding-top: 50px;
+    padding-bottom: 80px;
+    }
+  .price h2 {
     text-transform: uppercase;
     padding-bottom: 70px;
     font-weight: normal;
     }
-
   .price h2 span {
     display: block;
     width: 300px;
     height: 5px;
     border-bottom: 5px solid #23b99f;
-    opacity: 1;
   }
+
   section#container {
     display: flex;
     justify-content: space-between;
@@ -189,12 +187,14 @@ span.underline {
   div.main_border {
     border: 2px solid grey;
     width: 300px;
-    height: 500px;
+    height: 470px;
     z-index: 1;
     position: relative;
+    background-color: #D7DBDD;
+    text-align: center;
+    font-size: 1.5rem;
     }
-
-  div.outside_circle {
+ div.outside_circle {
     background-color: white;
     border: 2px solid grey;
     width: 60px;
@@ -218,30 +218,162 @@ span.underline {
 .main_border  h3 {
     width: inherit;
     text-align: center;
-    position: absolute;
     margin-top: 50px;
+    color:#23b99f;
     }
 .main_border div:nth-of-type(4) {
   position: absolute;
   top:240px;
 }
 .price_circle {
-  width: 90px;
-  height: 90px;
+  width: 110px;
+  height:110px;
   border-radius: 50%;
-  border: 1px solid grey;
-  line-height: 30px;
-  font-size: 16px;
+  border: 2px solid grey;
+  background-color: white;
+  font-size: 15px;
+  color: silver;
   text-align: center;
   position: absolute;
   top: 110px;
-  left: 105px;
+  left: 95px;
 }
-
+div.price_circle span {
+  display: block;
+  padding-top:20px;
+  line-height: normal;
+  font-size: 30px;
+  color: #AEB6BF;
+  font-weight: bolder;
+}
 .main_border p {
   width: 300px;
   height: 40px;
-  border: 1px solid black;
   margin:0;
   line-height: 40px;
   }
+.price_button {
+  background-color: #23b99f;
+  height: 30px;
+  width: 120px;
+  border-radius: 5px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 16px;
+  color: white;
+  position: absolute;
+  bottom: 20px;
+  left: 90px;
+}
+
+/*style dla first and third div class*/
+.first div p:nth-child(even), .third div p:nth-child(even){
+  background-color: #E5E7E9;
+  color: #95A5A6;
+}
+.first div p:nth-child(odd), .third div p:nth-child(odd){
+  background-color: #BFC9CA;
+  color:#2C3E50;
+}
+/*style dla second div class*/
+div.second {
+  background-color: #23b99f;
+  border: 2px solid #23b99f;
+}
+.second .outside_circle {
+  background-color: inherit;
+  border: 2px solid #23b99f;
+}
+.second .inside_circle {
+  background-color: #cccccc;
+}
+.second h3 {
+  color: white;
+}
+.second .price_circle, .second .price_circle span {
+  color: #23b99f;
+}
+.second div p:nth-child(even) {
+  background-color: #E5E7E9;
+  color: #95A5A6;
+}
+.second div p:nth-child(odd) {
+  background-color: white;
+  color:#2C3E50;
+}
+.second .price_button {
+  color: #23b99f;
+  background-color: white;
+}
+
+/*Style dla section contact_info*/
+.contact_info {
+  padding-top: 50px;
+  height: 500px;
+}
+.contact_info h2 {
+  font-weight: normal;
+  }
+.contact_info h2 span {
+  display: block;
+  width: 300px;
+  height: 5px;
+  border-bottom: 5px solid #23b99f;
+}
+
+input {
+  display: block;
+  border: 2px solid #23b99f;
+  width: 500px;
+  height: 40px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  font-family: 'Raleway', sans-serif;
+  line-height: 35px;
+  font-size: 25px;
+}
+form {
+  width: 550px;
+  height: 430px;
+  float: left;
+}
+.contact_info div:nth-child(3){
+  width: 600px;
+  height: 430px;
+  border:1px solid black;
+  float: right;
+}
+[type = "textarea"]{
+  height: 180px;
+}
+.contact_info div div {
+  height: 200px;
+  width: 280px;
+  background-image: url("../images/red_chair.png");
+  background-repeat: no-repeat;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+figure {
+  border: 1px solid #23b99f;
+  width: 220px;
+  height: 80px;
+  display: inline-block;
+  margin: 15px 0 0 20px;
+}
+
+figure img {
+  width: 40px;
+  height: 40px;
+  margin:0;
+}
+
+figcaption {
+  display: inline-block;
+  width: 200px;
+  height: 50px;
+  font-size: 24px;
+  float: right;
+}
