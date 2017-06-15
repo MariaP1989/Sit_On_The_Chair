@@ -6,11 +6,12 @@ body {
   min-width: 1200px;
   background-color: white;
 }
-.container {
+.container, footer {
   padding: 0 40px 0 40px;
   clear: both;
   width:1200px;
 }
+
 /*Style do class = "top section"*/
 section.top_section {
   height: 50px;
@@ -42,18 +43,41 @@ li.menu_item{
   color: white;
   list-style: none;
   }
-/*#dropdown {
+.menu_item:first-child {
+  position: relative;
+}
+#square {
+  height: 20px;
+  width:20px;
+  background-color: black;
+  position: absolute;
+  left: 25px;
+  bottom: -30px;
+  transform: rotate(45deg);
+}
+#dropdown {
+  height: 110px;
+  width: 150px;
   display: block;
   overflow: auto;
+  border: 1px solid black;
+  list-style-type: none;
+  padding:0;
+  position: absolute;
+  top: 70px;
+  left: -40px;
+  background-color: black;
 }
-li.menu_item:hover #dropdown {
-  display: block;
-}*/
+#dropdown li {
+  line-height: 35px;
+  margin: 0;
+  padding: 0;
+}
 
 /*Style do class = "main_section"*/
 section.main_section {
-  padding-top: 100px;
-  height: 500px;
+  padding-top: 130px;
+  height: 400px;
   background-image: -webkit-linear-gradient(top, #EBEBEB 50%, #A8A8A8 100%);
 }
 img {
@@ -122,7 +146,6 @@ div.text {
   height: 260px;
   width: 380px;
 }
-
 div.text p {
   text-indent: 15px;
   text-align: justify;
@@ -160,18 +183,18 @@ span.underline {
   opacity: 1;
   }
 
-  /*Style do section price*/
-  section.price {
-    height: 650px;
-    background-color: #cccccc;
-    padding-top: 50px;
-    padding-bottom: 80px;
-    }
-  .price h2 {
-    text-transform: uppercase;
-    padding-bottom: 70px;
-    font-weight: normal;
-    }
+/*Style dla section class = "price"*/
+section.price {
+  height: 650px;
+  background-color: #cccccc;
+  padding-top: 50px;
+  padding-bottom: 80px;
+  }
+.price h2 {
+  text-transform: uppercase;
+  padding-bottom: 70px;
+  font-weight: normal;
+  }
   .price h2 span {
     display: block;
     width: 300px;
@@ -216,11 +239,11 @@ span.underline {
     z-index: 3;
     }
 .main_border  h3 {
-    width: inherit;
-    text-align: center;
-    margin-top: 50px;
-    color:#23b99f;
-    }
+  width: inherit;
+  text-align: center;
+  margin-top: 50px;
+  color:#23b99f;
+  }
 .main_border div:nth-of-type(4) {
   position: absolute;
   top:240px;
@@ -266,7 +289,7 @@ div.price_circle span {
   left: 90px;
 }
 
-/*style dla first and third div class*/
+/*Style dla first and third div class*/
 .first div p:nth-child(even), .third div p:nth-child(even){
   background-color: #E5E7E9;
   color: #95A5A6;
@@ -275,7 +298,8 @@ div.price_circle span {
   background-color: #BFC9CA;
   color:#2C3E50;
 }
-/*style dla second div class*/
+
+/*Style dla second div class*/
 div.second {
   background-color: #23b99f;
   border: 2px solid #23b99f;
@@ -306,10 +330,11 @@ div.second {
   background-color: white;
 }
 
-/*Style dla section contact_info*/
+/*Style dla section class = "contact_info"*/
 .contact_info {
-  padding-top: 50px;
   height: 500px;
+  padding-top: 50px;
+  position: relative;
 }
 .contact_info h2 {
   font-weight: normal;
@@ -320,11 +345,10 @@ div.second {
   height: 5px;
   border-bottom: 5px solid #23b99f;
 }
-
-input {
+input, textarea {
   display: block;
   border: 2px solid #23b99f;
-  width: 500px;
+  width: 700px;
   height: 40px;
   margin-top: 10px;
   margin-bottom: 25px;
@@ -333,47 +357,85 @@ input {
   font-size: 25px;
 }
 form {
-  width: 550px;
-  height: 430px;
+  width: 720px;
+  height: 370px;
   float: left;
 }
 .contact_info div:nth-child(3){
-  width: 600px;
-  height: 430px;
-  border:1px solid black;
+  width: 450px;
+  height: 400px;
   float: right;
 }
-[type = "textarea"]{
-  height: 180px;
+textarea {
+  height: 210px;
+  line-height: 30px;
 }
 .contact_info div div {
-  height: 200px;
+  height: 220px;
   width: 280px;
   background-image: url("../images/red_chair.png");
   background-repeat: no-repeat;
-  margin-top: 30px;
-  margin-left: auto;
+  margin-top: 0;
   margin-right: auto;
+  margin-bottom: 20px;
+  margin-left: auto;
 }
-
 figure {
-  border: 1px solid #23b99f;
-  width: 220px;
-  height: 80px;
+  width:inherit;
+  height: 60px;
   display: inline-block;
-  margin: 15px 0 0 20px;
+  margin: 0;
 }
-
 figure img {
-  width: 40px;
-  height: 40px;
+  display: inline-block;
+  border: 1px solid #23b99f;
   margin:0;
 }
-
 figcaption {
   display: inline-block;
-  width: 200px;
-  height: 50px;
+  width: 350px;
+  height: 100px;
   font-size: 24px;
+  color: #AEB6BF;
+  margin: 0 0 0 20px;
+}
+[type = "submit"] {
+  background-color: #23b99f;
+  height: 60px;
+  width: 410px;
+  border-radius: 5px;
+  line-height: 60px;
+  font-size: 30px;
+  font-weight: bolder;
+  text-transform: uppercase;
+  text-align: center;
+  color: white;
+  position: absolute;
+  right: 80px;
+  bottom: 30px;
+}
+
+/*Style dla section class ="footer"*/
+footer {
+  height: 45px;
+  }
+h4 {
+  line-height: 35px;
+  display: inline-block;
+  margin: 0;
+  color:#AEB6BF;
+}
+img {
+  margin: 0;
+}
+footer p {
+  line-height: 35px;
+  float: right;
+  margin: 0;
+  color: #AEB6BF;
+  font-weight: bold;
+}
+footer div {
+  width: 250px;
   float: right;
 }
