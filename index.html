@@ -90,7 +90,7 @@
           <p>Zakup towaru + dowóz </p>
           <p> Serwis </p>
         </div>
-        <div class ="price_button"> DOŁĄCZ</div>
+        <button class ="price_button"> DOŁĄCZ</button>
       </div>
 
       <div class = "main_border second">
@@ -103,7 +103,7 @@
           <p> Serwis </p>
           <p> Gwarancja 5 lat</p>
         </div>
-        <div class ="price_button"> DOŁĄCZ </div>
+        <button class ="price_button"> DOŁĄCZ </button>
       </div>
 
       <div class = "main_border third">
@@ -117,12 +117,12 @@
           <p> Gwarancja 6 lat</p>
           <p> Porady projektanta</p>
         </div>
-        <div class ="price_button"> DOŁĄCZ </div>
+        <button class ="price_button"> DOŁĄCZ </button>
       </div>
     </section>
   </section>
 
-  <section class="application ">
+  <section class="application container">
       <div class="main_width">
           <section class="choice_part inline">
               <header>
@@ -135,26 +135,26 @@
                       <span class="list_label">Wybierz rodzaj</span>
                       <span class="list_arrow"></span>
                       <ul class="list_panel">
-                          <li>Clair</li>
-                          <li>Margarita</li>
-                          <li>Selena</li>
+                          <li data-value ="150">Clair</li>
+                          <li data-value = "200">Margarita</li>
+                          <li data-value ="220">Selena</li>
                       </ul>
                   </div>
                   <div class="drop_down_list">
                       <span class="list_label">Wybierz kolor</span>
                       <span class="list_arrow"></span>
                       <ul class="list_panel">
-                          <li>Czerwony</li>
-                          <li>Czarny</li>
-                          <li>Pomarańczowy</li>
+                          <li data-value = "120">Czerwony</li>
+                          <li data-value = "85">Czarny</li>
+                          <li data-value = "75">Pomarańczowy</li>
                       </ul>
                   </div>
                   <div class="drop_down_list">
                       <span class="list_label">Wybierz materiał</span>
                       <span class="list_arrow"></span>
                       <ul class="list_panel">
-                          <li>Tkanina</li>
-                          <li>Skóra</li>
+                          <li data-value ="200">Tkanina</li>
+                          <li data-value = "450">Skóra</li>
                       </ul>
                   </div>
                   <div class="checkbox check-box">
@@ -179,20 +179,22 @@
               <div class="summary_panel">
                   <div class="panel_left">
                       <h4 class="title">Twój fotel</h4>
+                      <span class ="type"></span>
                       <span class="color"></span>
                       <span class="pattern"></span>
                       <span class="transport"></span>
                   </div>
                   <div class="panel_right">
                       <h4 class="title value"></h4>
-                      <span class="color value"></span>
-                      <span class="pattern value"></span>
-                      <span class="transport value"></span>
+                      <span class ="type_value"></span>
+                      <span class="color_value"></span>
+                      <span class="pattern_value"></span>
+                      <span class="transport_value"></span>
                   </div>
                   <div class="sum_label">SUMA</div>
                   <div class="sum"><strong></strong></div>
               </div>
-              <a href="" class="green_button">Zamawiam</a>
+              <button class="order_button">Zamawiam</button>
           </section>
       </div>
   </section>
@@ -205,12 +207,11 @@
       <textarea type ="text" name="msg" placeholder="Wiadomość"></textarea>
       <input type ="submit" name ="button_send" value="Wyślij"></input>
     </form>
-
-    <div class="last">
-        <img>
-          <figcaption>Zgadzam się na przetwarzanie danych osobowych. </figcaption>
+    <div class = "red_chair"></div>
+    <div class="checkbox checkbox_last">
+        <input type="checkbox" id="agree"></input>
+        <label>Zgadzam się na przetwarzanie danych osobowych.</label>
     </div>
-
   </section>
 
   <footer>
