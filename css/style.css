@@ -411,15 +411,17 @@ span {
 }
 .checkbox {
   position: relative;
-  padding: 30px 30px 30px 0;
+  padding: 10px 10px 10px 0;
 }
 .checkbox input {
   display: block;
   opacity: 0;
   height: 48px;
   position: absolute;
+  left: 75px;
   width: 48px;
   cursor: pointer;
+  z-index: 3;
 }
 .checkbox label {
   display: block;
@@ -454,11 +456,11 @@ span {
 .checkbox input:checked + label::after {
   display: block;
 }
-.active {
+/*.active {
   background: url('../images/form_ok.jpg');
   width: 48px;
   height: 40px;
-}
+}*/
 .inline_text {
   display: inline-block;
   width: 228px;
@@ -639,7 +641,7 @@ span {
   height: 5px;
   border-bottom: 5px solid #23b99f;
 }
-input, textarea {
+#form_info input, #form_info textarea {
   display: block;
   border: 2px solid #23b99f;
   width: 100%;
@@ -655,7 +657,7 @@ form {
   height:auto;
   float: left;
 }
-textarea {
+#form_info textarea {
   height: 210px;
   width: 100%;
   line-height: 30px;
@@ -664,6 +666,8 @@ textarea {
   width: 350px;
   height: 200px;
   float: right;
+  margin-left: auto;
+  margin-right: 110px;
   background-image: url("../images/red_chair.png");
   background-repeat: no-repeat;
   background-position: center;
@@ -676,15 +680,13 @@ textarea {
     display: flex;
     justify-content: center;
 }
-.checkbox_last input {
-    width: 20%;
-}
+
 .checkbox_last label {
     width: 75%;
-    font-size: 26px;
+    font-size: 22px;
     text-align: center;
 }
-[type = "submit"] {
+button[type = "submit"] {
   background-color: #23b99f;
   height: 60px;
   width: 390px;
@@ -696,8 +698,8 @@ textarea {
   text-align: center;
   color: white;
   position: absolute;
-  right: 185px;
-  bottom: 40px;
+  right: 135px;
+  bottom: 60px;
 }
 /*Style dla section class ="footer"*/
 footer {

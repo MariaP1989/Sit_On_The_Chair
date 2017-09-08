@@ -67,8 +67,8 @@ button_pack[2].addEventListener("click", function(event){
 
 // rozwijanie list w panelu tworzącym zamówienie fotela
 var button_order = document.querySelectorAll('.list_arrow');
-var tekst  = "";
-var value = 0;
+var tekst;
+var value;
 //wyszukanie elementów rozwiniętej listy zakupów
 function list_choose() {
     var element = document.querySelector('.list_panel_clicked').children;
@@ -76,31 +76,39 @@ function list_choose() {
             element[i].addEventListener('click', function(){
                 event.target.parentElement.classList.remove('list_panel_clicked');
                 event.target.parentElement.classList.add('list_panel');
+                tekst = event.target.innerHTML;
+                console.log(tekst);
+                value = event.target.dataset.value;
+                console.log(value)
+                return tekst;
             });
         }
 }
 
+function text_value (claass, claass_value) {
+    document.querySelector(claass).innerHTML = tekst;
+    document.querySelector(claass_value).innerHTML = value;
+}
 button_order[0].addEventListener('click', function(){
     this.nextElementSibling.classList.remove('list_panel');
     this.nextElementSibling.classList.add('list_panel_clicked');
         console.log('[0]');
             list_choose();
-        // document.querySelector(".type").innerHTML = tekst;
-        // document.querySelector(".type_value").innerHTML = value;
+            text_value(".type",'.type_value');
 });
 button_order[1].addEventListener('click', function(){
     this.nextElementSibling.classList.remove('list_panel');
     this.nextElementSibling.classList.add('list_panel_clicked');
         console.log('[1]');
             list_choose();
-                    // document.querySelector(".color").innerHTML = tekst;
-                    // document.querySelector(".color_value").innerHTML = value;
+                    document.querySelector(".color").innerHTML = tekst;
+                    document.querySelector(".color_value").innerHTML = value;
 });
 button_order[2].addEventListener('click', function(){
     this.nextElementSibling.classList.remove('list_panel');
     this.nextElementSibling.classList.add('list_panel_clicked');
         console.log('[2]');
             list_choose();
-                    // document.querySelector(".pattern").innerHTML = tekst;
-                    // document.querySelector(".pattern_value").innerHTML = value;
+                    document.querySelector(".pattern").innerHTML = tekst;
+                    document.querySelector(".pattern_value").innerHTML = value;
 });
