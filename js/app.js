@@ -67,48 +67,83 @@ button_pack[2].addEventListener("click", function(event){
 
 // rozwijanie list w panelu tworzącym zamówienie fotela
 var button_order = document.querySelectorAll('.list_arrow');
-var tekst;
-var value;
-//wyszukanie elementów rozwiniętej listy zakupów
+var suma = 0;
+var suma_strong = document.querySelector('.sum strong');
+
 function list_choose() {
     var element = document.querySelector('.list_panel_clicked').children;
         for(var i = 0; i < element.length; i++){
             element[i].addEventListener('click', function(){
                 event.target.parentElement.classList.remove('list_panel_clicked');
                 event.target.parentElement.classList.add('list_panel');
-                tekst = event.target.innerHTML;
-                console.log(tekst);
-                value = event.target.dataset.value;
-                console.log(value)
-                return tekst;
             });
         }
 }
 
-function text_value (claass, claass_value) {
-    document.querySelector(claass).innerHTML = tekst;
-    document.querySelector(claass_value).innerHTML = value;
-}
 button_order[0].addEventListener('click', function(){
     this.nextElementSibling.classList.remove('list_panel');
     this.nextElementSibling.classList.add('list_panel_clicked');
-        console.log('[0]');
-            list_choose();
-            text_value(".type",'.type_value');
+    var list = document.querySelectorAll('.list_panel_clicked li');
+
+    for(var i = 0; i < list.length; i++){
+        list[i].addEventListener('click', function(event){
+            var text = this.innerHTML;
+            var price = this.dataset.value;
+            suma += parseInt(price,10);
+            suma_strong.innerHTML = suma;
+            document.querySelector('.type').innerHTML = text;
+            document.querySelector('.type_value').innerHTML = price;
+        });
+    }
+    list_choose();
 });
 button_order[1].addEventListener('click', function(){
     this.nextElementSibling.classList.remove('list_panel');
     this.nextElementSibling.classList.add('list_panel_clicked');
-        console.log('[1]');
-            list_choose();
-                    document.querySelector(".color").innerHTML = tekst;
-                    document.querySelector(".color_value").innerHTML = value;
+    var list = document.querySelectorAll('.list_panel_clicked li');
+
+    for(var i = 0; i < list.length; i++){
+        list[i].addEventListener('click', function(event){
+            var text = this.innerHTML;
+            var price = this.dataset.value;
+            suma += parseInt(price,10);
+            suma_strong.innerHTML = suma;
+            document.querySelector('.color').innerHTML = text;
+            document.querySelector('.color_value').innerHTML = price;
+        });
+    }
+    list_choose();
 });
+
 button_order[2].addEventListener('click', function(){
     this.nextElementSibling.classList.remove('list_panel');
     this.nextElementSibling.classList.add('list_panel_clicked');
-        console.log('[2]');
-            list_choose();
-                    document.querySelector(".pattern").innerHTML = tekst;
-                    document.querySelector(".pattern_value").innerHTML = value;
+    var list = document.querySelectorAll('.list_panel_clicked li');
+
+    for(var i = 0; i < list.length; i++){
+        list[i].addEventListener('click', function(event){
+            var text = this.innerHTML;
+            var price = this.dataset.value;
+            suma += parseInt(price,10);
+            suma_strong.innerHTML = suma;
+            document.querySelector('.pattern').innerHTML = text;
+            document.querySelector('.pattern_value').innerHTML = price;
+        });
+    }
+    list_choose();
+});
+
+//zamówienie fotela
+var order_button = document.querySelector('.order_button');
+order_button.addEventListener('click', function(){
+    var left = document.querySelectorAll('.panel_left span');
+    var right = document.querySelectorAll('.panel_right span');
+
+    function remove(element, index, array){
+        element.innerHTML = "";
+    }
+
+    left.forEach(remove);
+    right.forEach(remove);
+    suma_strong.innerHTML = "";
 });
