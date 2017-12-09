@@ -75,7 +75,11 @@ button_pack[2].addEventListener("click", function(event){
 // rozwijanie list w panelu tworzącym zamówienie fotela
 var button_order = document.querySelectorAll('.list_arrow');
 var list = document.querySelectorAll('.list_panel li');
-var suma = 0;
+var suma_type = 0;
+var suma_color = 0;
+var suma_pattern = 0;
+var suma_transport = 0;
+var suma_all = 0;
 var suma_strong = document.querySelector('.sum strong');
 
 function list_choose() {
@@ -98,42 +102,58 @@ for (var i = 0; i < button_order.length; i++){
 }
 for(var i = 0; i < list.length; i++){
     console.log(i);
-    if( i == 0 || i == 1 || i == 2) {
-        list[i].addEventListener('click', function(event){
-            var text = this.innerHTML;
-            var price = this.dataset.value;
-            suma += parseInt(price,10);
-            document.querySelector('.type').innerHTML = text;
-            document.querySelector('.type_value').innerHTML = price;
-            suma_strong.innerHTML = suma;
-            price = 0;
-            suma = 0;
-        });
-    } else if ( i == 3 || i == 4 || i == 5) {
-        list[i].addEventListener('click', function(event){
-            var text = this.innerHTML;
-            var price = this.dataset.value;
-            suma += parseInt(price,10);
-            document.querySelector('.color').innerHTML = text;
-            document.querySelector('.color_value').innerHTML = price;
-            suma_strong.innerHTML = suma;
-            price = 0;
-            suma = 0;
-        });
-    } else if ( i == 6 || i == 7 || i == 8) {
-        list[i].addEventListener('click', function(event){
-            var text = this.innerHTML;
-            var price = this.dataset.value;
-            suma += parseInt(price,10);
-            document.querySelector('.pattern').innerHTML = text;
-            document.querySelector('.pattern_value').innerHTML = price;
-            suma_strong.innerHTML = suma;
-            price = 0;
-            suma = 0;
-        })
-    }
+    var text = "";
+    var price = 0;
+        if( i == 0 || i == 1 || i == 2) {
+            list[i].addEventListener('click', function(event){
+                text = this.innerHTML;
+                price = this.dataset.value;
+                document.querySelector('.type').innerHTML = text;
+                document.querySelector('.type_value').innerHTML = price;
+                suma_type = parseInt(price,10);
+                price = 0;
+                suma_all = suma_type + suma_color + suma_pattern + suma_transport;
+                suma_strong.innerHTML = suma_all;
+            });
+        } else if ( i == 3 || i == 4 || i == 5) {
+            list[i].addEventListener('click', function(event){
+                text = this.innerHTML;
+                price = this.dataset.value;
+                document.querySelector('.color').innerHTML = text;
+                document.querySelector('.color_value').innerHTML = price;
+                suma_color = parseInt(price,10);
+                price = 0;
+                suma_all = suma_type + suma_color + suma_pattern + suma_transport;
+                suma_strong.innerHTML = suma_all;
+            });
+        } else if ( i == 6 || i == 7 || i == 8) {
+            list[i].addEventListener('click', function(event){
+                text = this.innerHTML;
+                price = this.dataset.value;
+                document.querySelector('.pattern').innerHTML = text;
+                document.querySelector('.pattern_value').innerHTML = price;
+                suma_pattern = parseInt(price,10);
+                price = 0;
+                suma_all = suma_type + suma_color + suma_pattern + suma_transport;
+                suma_strong.innerHTML = suma_all;
+            });
+        }
 }
+//dopłata za transport
+var transport_price = document.querySelector("#transport-decidion");
+console.log(transport_price);
+transport_price.addEventListener('click', function(event){
+    if(suma_transport == 0){
+        suma_transport = 80;
+        suma_all = suma_type + suma_color + suma_pattern + suma_transport;
+        suma_strong.innerHTML = suma_all;
+    } else if (suma_transport = 80){
+        suma_transport = 0;
+        suma_all = suma_type + suma_color + suma_pattern + suma_transport;
+        suma_strong.innerHTML = suma_all;
+    }
 
+})
 //zamówienie fotela
 var order_button = document.querySelector('.order_button');
 order_button.addEventListener('click', function(){
@@ -145,5 +165,9 @@ order_button.addEventListener('click', function(){
     left.forEach(remove);
     right.forEach(remove);
     suma_strong.innerHTML = "";
-    suma = 0;
+    suma_type = 0;
+    suma_color = 0;
+    suma_pattern = 0;
+    suma_transport = 0;
+    suma_all = 0;
 });
