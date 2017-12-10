@@ -410,13 +410,13 @@ span {
   height:38px;
   background-color: white;
   margin-top:22px;
-  padding: 8px 12px;
+  padding: 4px 12px;
   position: relative;
 }
 .list_label {
   line-height: 30px;
-  font-size: 26px;
-  color: #e2e2e2;
+  font-size: 23px;
+  color: #666666;
   font-family: 'ralewaylight', Arial, Tahoma, sans-serif;
 }
 .checkbox {

@@ -91,7 +91,6 @@ for (var i = 0; i < button_order.length; i++){
     button_order[i].addEventListener('click', function(){
         this.nextElementSibling.classList.remove('list_panel');
         this.nextElementSibling.classList.add('list_panel_clicked');
-        console.log(list)
     list_choose();
     });
 }
@@ -105,14 +104,17 @@ var suma_all = 0;
 var suma_strong = document.querySelector('.sum strong');
 
 for(var i = 0; i < list.length; i++){
-    console.log(i);
     var text = "";
     var price = 0;
         if( i == 0 || i == 1 || i == 2) {
             list[i].addEventListener('click', function(event){
+                var span = document.querySelector('.form .drop_down_list:first-of-type .list_label');
                 text = this.innerHTML;
+                span.innerHTML = text;
+                span.style.color = "#c52e2e";
                 price = this.dataset.value;
                 document.querySelector('.type').innerHTML = text;
+                document.querySelector('.type').style.color = "#c52e2e"
                 document.querySelector('.type_value').innerHTML = price;
                 suma_type = parseInt(price,10);
                 price = 0;
@@ -121,9 +123,13 @@ for(var i = 0; i < list.length; i++){
             });
         } else if ( i == 3 || i == 4 || i == 5) {
             list[i].addEventListener('click', function(event){
+                var span = document.querySelector('.form .drop_down_list:nth-of-type(2) .list_label')
                 text = this.innerHTML;
+                span.innerHTML = text;
+                span.style.color = "	#c52e2e";
                 price = this.dataset.value;
                 document.querySelector('.color').innerHTML = text;
+                document.querySelector('.color').style.color = "#c52e2e";
                 document.querySelector('.color_value').innerHTML = price;
                 suma_color = parseInt(price,10);
                 price = 0;
@@ -132,9 +138,13 @@ for(var i = 0; i < list.length; i++){
             });
         } else if ( i == 6 || i == 7 || i == 8) {
             list[i].addEventListener('click', function(event){
+                var span = document.querySelector('.form .drop_down_list:nth-of-type(3) .list_label')
                 text = this.innerHTML;
+                span.innerHTML = text;
+                span.style.color = "	#c52e2e";
                 price = this.dataset.value;
                 document.querySelector('.pattern').innerHTML = text;
+                document.querySelector('.pattern').style.color = "#c52e2e";
                 document.querySelector('.pattern_value').innerHTML = price;
                 suma_pattern = parseInt(price,10);
                 price = 0;
@@ -145,7 +155,8 @@ for(var i = 0; i < list.length; i++){
 }
 //dopłata za transport
 var transport_price = document.querySelector("#transport-decidion");
-console.log(transport_price);
+var checkBoxTransp = document.getElementById('transport');
+
 transport_price.addEventListener('click', function(event){
     if(suma_transport == 0){
         suma_transport = 80;
@@ -161,19 +172,7 @@ transport_price.addEventListener('click', function(event){
 //zamówienie fotela
 var order_button = document.querySelector('.order_button');
 order_button.addEventListener('click', function(event){
-    var left = document.querySelectorAll('.panel_left span');
-    var right = document.querySelectorAll('.panel_right span');
-    function remove(element, index, array){
-        element.innerHTML = "";
-    }
-    left.forEach(remove);
-    right.forEach(remove);
-    suma_strong.innerHTML = "";
-    suma_type = 0;
-    suma_color = 0;
-    suma_pattern = 0;
-    suma_transport = 0;
-    suma_all = 0;
+    location.reload();
 });
 
 //walidacja formularza
@@ -189,8 +188,6 @@ button_submit.addEventListener('click',function(event){
     var inputMail = document.querySelector("#form_info input:nth-of-type(2)");
     var textareaMsg = document.querySelector("#form_info textarea");
     var checkBox = document.getElementById("agree");
-    console.log(checkBox);
-
     if(inputName.value.length < 5){
         alert("Wpisane imie jest za krótkie");
     } else if(inputMail.value.indexOf('@') == -1){
