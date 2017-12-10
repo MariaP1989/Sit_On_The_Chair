@@ -75,12 +75,7 @@ button_pack[2].addEventListener("click", function(event){
 // rozwijanie list w panelu tworzącym zamówienie fotela
 var button_order = document.querySelectorAll('.list_arrow');
 var list = document.querySelectorAll('.list_panel li');
-var suma_type = 0;
-var suma_color = 0;
-var suma_pattern = 0;
-var suma_transport = 0;
-var suma_all = 0;
-var suma_strong = document.querySelector('.sum strong');
+
 
 function list_choose() {
     var element = document.querySelector('.list_panel_clicked').children;
@@ -100,6 +95,15 @@ for (var i = 0; i < button_order.length; i++){
     list_choose();
     });
 }
+
+//sumowanie wartości zamówienia fotela
+var suma_type = 0;
+var suma_color = 0;
+var suma_pattern = 0;
+var suma_transport = 0;
+var suma_all = 0;
+var suma_strong = document.querySelector('.sum strong');
+
 for(var i = 0; i < list.length; i++){
     console.log(i);
     var text = "";
@@ -156,7 +160,7 @@ transport_price.addEventListener('click', function(event){
 })
 //zamówienie fotela
 var order_button = document.querySelector('.order_button');
-order_button.addEventListener('click', function(){
+order_button.addEventListener('click', function(event){
     var left = document.querySelectorAll('.panel_left span');
     var right = document.querySelectorAll('.panel_right span');
     function remove(element, index, array){
@@ -171,3 +175,31 @@ order_button.addEventListener('click', function(){
     suma_transport = 0;
     suma_all = 0;
 });
+
+//walidacja formularza
+var form = document.querySelector('#form_info');
+var button_submit = document.querySelector("#form_info button");
+
+form.addEventListener('submit', function(event){
+    event.preventDefault();
+});
+
+button_submit.addEventListener('click',function(event){
+    var inputName = document.querySelector("#form_info input:first-of-type");
+    var inputMail = document.querySelector("#form_info input:nth-of-type(2)");
+    var textareaMsg = document.querySelector("#form_info textarea");
+    var checkBox = document.getElementById("agree");
+    console.log(checkBox);
+
+    if(inputName.value.length < 5){
+        alert("Wpisane imie jest za krótkie");
+    } else if(inputMail.value.indexOf('@') == -1){
+        alert("Niepoprawny adres email");
+    } else if (textareaMsg.value.length < 15 || textareaMsg.value.length > 50){
+        alert("Wiadomość powinna zawierać od 15 do 50 znaków")
+    } else if (!checkBox.checked){
+        alert("Zaznacz zgodę na przetwarzanie danych osobowych");
+    } else {
+        form.submit();
+    }
+})
